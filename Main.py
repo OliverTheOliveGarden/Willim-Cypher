@@ -28,6 +28,10 @@ ABCsDic = {
     "y": 25,
     "z": 26
     }
+    
+## Settings
+CondensedErrorMsg = False  
+
 #endregion
 #region Keybord Encode
 
@@ -219,6 +223,38 @@ def getDVORAKtoNumber(input):
     return output
 
 #endregion
+#region TeHe
+def errorMsg(Msg):
+    if (not CondensedErrorMsg):
+        print("\033[31m                                                                                 ")
+        print("    .                                                                ...         ")
+        print(" .:-:..                                                             :---:..      ")
+        print(".=-----::.                                                         .----:--:.    ")
+        print("--:::---..   .----:.                                              :----:--:      ")
+        print(" :---::----::::------.              .. ..::.                 ..:.   .:--:::-:.   ")
+        print("  :-----::::::-::---:              -+-:-=+#*-::.            .:----:..:--::::-:.  ")
+        print("  .:-----:::::::::::.         .:=+++--:::---===---::.       .--::---:-=-::::-:.  ")
+        print("   .-------::::--:..        .:-=====--::::--=--------:..     .----===--:::::--.  ")
+        print("   .:------::::--:.      .:---==----------------------=:.     :------::-------.  ")
+        print("    .------:::::::.      :-----------=======-------------:    :----:---------:.  ")
+        print("     .-----:::---:.    .:--------=+*%%%%%%%%%*+-----------:.  :==--::-------.    ")
+        print("      .:----::--:.    .:--------+#%%%%%%%%%%%%%#+=---------:  .:---:------:.     ")
+        print("        .:-----:.    .--------=*%%%%%%%%%%%%%%%%%*---------:.   .:----::...      ")
+        print("          ....       .-------=*%%%%%@@@@@@@@%%%%%%*=-------=:.                   ")
+        print("                     .-------*%%%%%%@@@@@@@@%%%%%%%*------===.                   ")
+        print("                     .------+%%%%%%%@@@@@@@@@%%%%%%%*=-----==.                   ")
+        print("                     .-----=#%%%%%%%%#****##%%%%%%%%#+-----==.                   ")
+        print("                     .----=*%%%%%%%+--:::::-=*%%%%%%%#=-----:.                   ")
+        print("                      :---=#%%%%%+=::::::::::-=*%%%%%%+====:.                    ")
+        print("                      .-==+#%%%*=--------------=+#%%%%*===-:.                    ")
+        print("                       :-=+*#*+=----------------==*%%%+===:.                     ")
+        print("                       .--------------------------==++==+=:                      ")
+        print("                        :--====----------------==========:.                      ")
+        print("                          ...:----=-----------=====--:::..                       ")
+        print("                              ...:-============--::                              ")
+        print("                                    ...........                                  ")
+    print("\n \033[31m" + Msg + "\033[0m")
+#endregion
 #region Run Funcs
 
 def runCeaserCypher():
@@ -274,8 +310,25 @@ def runKeybord():
     elif (a == "BK"):
         return
     else:
+        errorMsg()
         print("\033[31mINVALID INPUT \033[0m")
         runKeybord()
+
+def runSettigns():
+    a = askChoices(("Condensed Error Messges", ""), "SETTINGS")
+    if (a == "1"):
+        b = askChoices(("On", "Off"), "Condensed Error Messges")
+        if (b == "1"):
+            CondensedErrorMsg = True
+        elif (b == "2"):
+            CondensedErrorMsg = False
+        else:
+            errorMsg("INVALID INPUT")
+            runSettigns()
+    else:
+        errorMsg("INVALID INPUT")
+        runSettigns()
+            
 
 def runCypher():
     a = askChoices(("KeyBoard", "Ceaser Cypher"), "Pick Cypher Type")
@@ -283,10 +336,12 @@ def runCypher():
        runKeybord()
     elif (a == "2"):
         print(runCeaserCypher())
+    elif (a == "ST"):
+        runSettigns()
     elif (a == "END"):
         return
     else:
-        print("\033[31mINVALID INPUT \033[0m")
+        errorMsg("INVALID INPUT")
         runCypher()
     print("\n")
     runCypher()
@@ -318,4 +373,5 @@ print("           \\______/ \\__|     ")
 
 print("\033[31mType \"END\" to stop program \033[0m")
 print("\033[31mType \"BK\" to go back \033[0m")
+print("\033[31mType \"ST\" for Settings \033[0m")
 runCypher()
