@@ -1,3 +1,34 @@
+#region Vars
+ABCs = ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z")
+ABCsDic = { 
+    "a":  1,
+    "b":  2,
+    "c":  3,
+    "d":  4,
+    "e":  5,
+    "f":  6,
+    "h":  7,
+    "g":  8,
+    "i":  9,
+    "j": 10,
+    "k": 11,
+    "l": 12,
+    "m": 13,
+    "n": 14,
+    "o": 15,
+    "p": 16,
+    "q": 17,
+    "r": 18,
+    "s": 19,
+    "t": 20,
+    "u": 21,
+    "v": 22,
+    "w": 23,
+    "x": 24,
+    "y": 25,
+    "z": 26
+    }
+#endregion
 #region Keybord Encode
 
 QWERTYTranslation = {
@@ -190,6 +221,36 @@ def getDVORAKtoNumber(input):
 #endregion
 #region Run Funcs
 
+def runCeaserCypher():
+    output = ""
+    a = int(input("Enter Shift (Unsigned)\n"))
+    if (a == "BK"):
+        return
+    shift = a - ((a//26) * 26)
+    b = askChoices(("Forward(+)", "Backward(-)"), "")
+    if (b == "1"):
+        c = input("Enter String (**lowercase**)\n")
+        for x in c:
+            i = ABCsDic[x] - 1 + shift
+            if (i > 25):
+                output += ABCs[i -26]
+            else:
+                output += ABCs[i]
+    elif (b == "2"):
+        c = input("Enter String (**lowercase**)\n")
+        for x in c:
+            i = ABCsDic[x] - 1 - shift
+            if (i < 0):
+                output += ABCs[i + 26]
+            else:
+                output += ABCs[i]
+    elif (a == "BK"):
+        return
+    else:
+        print("\033[31mINVALID INPUT \033[0m")
+        runCeaserCypher()
+    return output
+
 def askChoices(choices, qustion):
     askString = ""
     i = 1
@@ -210,22 +271,51 @@ def runKeybord():
         print(getABCtoNumber(input("Enter String \n")))
     elif (a == "3"):
         print(getDVORAKtoNumber(input("Enter String \n")))
+    elif (a == "BK"):
+        return
     else:
-        print("INVALID INPUT")
+        print("\033[31mINVALID INPUT \033[0m")
         runKeybord()
 
 def runCypher():
-    a = askChoices(("KeyBoard", "1"), "Pick Cypher Type")
+    a = askChoices(("KeyBoard", "Ceaser Cypher"), "Pick Cypher Type")
     if (a == "1"):
        runKeybord()
+    elif (a == "2"):
+        print(runCeaserCypher())
     elif (a == "END"):
         return
     else:
-        print("INVALID INPUT")
+        print("\033[31mINVALID INPUT \033[0m")
         runCypher()
     print("\n")
     runCypher()
 
 #endregion
-print("Type \"END\" to stop program")
+
+print("\033[33m$$\\      $$\\ $$\\ $$\\ $$\\ $$\\                                ")
+print("$$ | $\\  $$ |\\__|$$ |$$ |\\__|                               ")
+print("$$ |$$$\\ $$ |$$\\ $$ |$$ |$$\\ $$$$$$\\$$$$\\                   ")
+print("$$ $$ $$\\$$ |$$ |$$ |$$ |$$ |$$  _$$  _$$\\                  ")
+print("$$$$  _$$$$ |$$ |$$ |$$ |$$ |$$ / $$ / $$ |                 ")
+print("$$$  / \\$$$ |$$ |$$ |$$ |$$ |$$ | $$ | $$ |                 ")
+print("$$  /   \\$$ |$$ |$$ |$$ |$$ |$$ | $$ | $$ |                 ")
+print("\\__/     \\__|\\__|\\__|\\__|\\__|\\__| \\__| \\__|                 ")
+print("                                                            ")
+print("                                                            ")
+print("                                                            ")
+print(" $$$$$$\\                      $$\\                           ")
+print("$$  __$$\\                     $$ |                          ")
+print("$$ /  \\__|$$\\   $$\\  $$$$$$\\  $$$$$$$\\   $$$$$$\\   $$$$$$\\  ")
+print("$$ |      $$ |  $$ |$$  __$$\\ $$  __$$\\ $$  __$$\\ $$  __$$\\ ")
+print("$$ |      $$ |  $$ |$$ \\/  $$|$$ |  $$ |$$$$$$$$ |$$ |  \\__|")
+print("$$ |  $$\\ $$ |  $$ |$$ |  $$ |$$ |  $$ |$$   ____|$$ |      ")
+print("\\$$$$$$  |\\$$$$$$$ |$$$$$$$  |$$ |  $$ |\\$$$$$$$\\ $$ |      ")
+print(" \\______/  \\____$$ |$$  ____/ \\__|  \\__| \\_______|\\__|      ")
+print("          $$\\   $$ |$$ |                                    ")
+print("          \\$$$$$$  |$$ |                                    ")
+print("           \\______/ \\__|     ")
+
+print("\033[31mType \"END\" to stop program \033[0m")
+print("\033[31mType \"BK\" to go back \033[0m")
 runCypher()
