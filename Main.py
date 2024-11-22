@@ -30,7 +30,7 @@ ABCsDic = {
     }
 Killprgm = False
 ## Settings
-CondensedErrorMsg = True  
+CondensedErrorMsg = False  
 
 #endregion
 #region Keybord Encode
@@ -337,7 +337,7 @@ def runSettigns():
 """         
 
 def runEncode():
-    a = askChoices(("KeyBoard", "Ceaser Cypher"), "ENCODE")
+    a = askChoices(("KeyBoard", "Ceaser Cypher"), "ENCODE Pick Cypher")
     if (a == "1"):
        runKeybord()
     elif (a == "2"):
@@ -357,7 +357,7 @@ def runWILLIM():
     if(Killprgm):
         return
     
-    a = askChoices(("Encode","Decode"), "WILLIM CYPHER")
+    a = askChoices(("Encode","Decode"), "WILLIM CYPHER Pick Type")
     if (a == "1"):
         runEncode()
     elif (a == "2"):
@@ -371,6 +371,7 @@ def runWILLIM():
     else:
         errorMsg("INVALID INPUT")
         runWILLIM()
+    runWILLIM()
 
 #endregion
 
