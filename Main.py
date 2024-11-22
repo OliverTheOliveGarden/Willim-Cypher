@@ -28,9 +28,9 @@ ABCsDic = {
     "y": 25,
     "z": 26
     }
-    
+Killprgm = False
 ## Settings
-CondensedErrorMsg = False  
+CondensedErrorMsg = True  
 
 #endregion
 #region Keybord Encode
@@ -313,7 +313,7 @@ def runKeybord():
         errorMsg()
         print("\033[31mINVALID INPUT \033[0m")
         runKeybord()
-
+"""
 def runSettigns():
     a = askChoices(("Condensed Error Messges", ""), "SETTINGS")
     if (a == "1"):
@@ -328,23 +328,43 @@ def runSettigns():
     else:
         errorMsg("INVALID INPUT")
         runSettigns()
-            
+"""         
 
-def runCypher():
-    a = askChoices(("KeyBoard", "Ceaser Cypher"), "Pick Cypher Type")
+def runEncode():
+    a = askChoices(("KeyBoard", "Ceaser Cypher"), "ENCODE")
     if (a == "1"):
        runKeybord()
     elif (a == "2"):
         print(runCeaserCypher())
+    elif (a == "END"):
+        Killprgm = True
+        return
+    elif (a == "BK"):
+        return
+    else:
+        errorMsg("INVALID INPUT")
+        runEncode()
+    print("\n")
+    return
+
+def runWILLIM():
+    if(Killprgm):
+        return
+    
+    a = askChoices(("Encode","Decode"), "WILLIM CYPHER")
+    if (a == "1"):
+        runEncode()
+    elif (a == "2"):
+        runDecode()
     elif (a == "ST"):
         runSettigns()
     elif (a == "END"):
         return
+    elif (a == "BK"):
+        errorMsg("ERROR: No More Menus")
     else:
         errorMsg("INVALID INPUT")
-        runCypher()
-    print("\n")
-    runCypher()
+        runWILLIM()
 
 #endregion
 
@@ -373,5 +393,5 @@ print("           \\______/ \\__|     ")
 
 print("\033[31mType \"END\" to stop program \033[0m")
 print("\033[31mType \"BK\" to go back \033[0m")
-print("\033[31mType \"ST\" for Settings \033[0m")
-runCypher()
+#print("\033[31mType \"ST\" for Settings \033[0m")
+runWILLIM()
