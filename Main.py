@@ -267,19 +267,25 @@ def runCeaserCypher():
     if (b == "1"):
         c = input("Enter String (**lowercase**)\n")
         for x in c:
-            i = ABCsDic[x] - 1 + shift
-            if (i > 25):
-                output += ABCs[i -26]
-            else:
-                output += ABCs[i]
+            try:
+                i = ABCsDic[x] - 1 + shift
+                if (i > 25):
+                    output += ABCs[i - 26]
+                else:
+                    output += ABCs[i]
+            except:
+                output += x
     elif (b == "2"):
         c = input("Enter String (**lowercase**)\n")
         for x in c:
-            i = ABCsDic[x] - 1 - shift
-            if (i < 0):
-                output += ABCs[i + 26]
-            else:
-                output += ABCs[i]
+            try:
+                i = ABCsDic[x] - 1 - shift
+                if (i < 0):
+                    output += ABCs[i + 26]
+                else:
+                    output += ABCs[i]
+            except:
+                output += x
     elif (a == "BK"):
         return
     else:
