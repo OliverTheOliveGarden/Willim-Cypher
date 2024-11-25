@@ -9,12 +9,12 @@ Type HLP or HELP for a list of commands
 2. Go to [THIS LINK](https://www.onlinegdb.com/online_python_interpreter)
 3. Paste 'Ctr'+'v' the contents in this window
 
-![Step 3](md-photos/Screenshot 2024-11-25 2.21.14 PM.png)
+![Step 3](md-photos/Step-3)
 
 4. The click the gray bar at the bottom and pull up the console
 
-![Step 4](md-photos/Screenshot 2024-11-25 2.21.31 PM.png)
+![Step 4](md-photos/Step-4)
 
 5. Then press the green button that says run
 
-![Step 5](md-photos/Screenshot 2024-11-25 2.22.48 PM.png)
+![Step 5](md-photos/Step-5)
