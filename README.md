@@ -9,12 +9,12 @@ Type HLP or HELP for a list of commands
 2. Go to [THIS LINK](https://www.onlinegdb.com/online_python_interpreter)
 3. Paste 'Ctr'+'v' the contents in this window
 
-![Step 3](OliverTheOliveGarden/Willim-Cypher/md-photos/Step-3.png)
+![Step 3](Step-3.png)
 
 4. The click the gray bar at the bottom and pull up the console
 
-![Step 4](OliverTheOliveGarden/Willim-Cypher/md-photos/Step-4.png)
+![Step 4](Step-4.png)
 
 5. Then press the green button that says run
 
-![Step 5](OliverTheOliveGarden/Willim-Cypher/md-photos/Step-5.png)
+![Step 5](Step-5.png)
